@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Testimonial } from '../../shared/types';
 
 type TestimonialsProps = {

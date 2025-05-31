@@ -1,4 +1,3 @@
-import React from 'react';
 import type { NavigationItem } from '../../shared/types';
 import { NAVIGATION_ITEMS } from '../../shared/constants/data';
 

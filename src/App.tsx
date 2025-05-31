@@ -1,4 +1,3 @@
-import React from 'react';
 import { MainLayout } from './ui/layouts/MainLayout';
 import { Hero } from './ui/components/Hero';
 import { Mentor } from './ui/components/Mentor';
