@@ -1,46 +1,54 @@
 import { useState } from 'react';
+import type { FormData } from '../types';
 
-type FormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  country: string;
+type Notification = {
+  type: 'success' | 'error';
   message: string;
 };
 
 export const useContactForm = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState<Notification | null>(null);
 
   const handleSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
     try {
-      // Aquí iría la lógica para enviar el formulario
-      // Por ejemplo, una llamada a una API
-      console.log('Form data:', data);
-      
-      // Simulamos un envío exitoso
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Cerrar el modal después del envío exitoso
-      handleCloseModal();
-      
-      // Aquí podrías mostrar una notificación de éxito
-      alert('¡Gracias por contactarnos! Te responderemos pronto.');
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      // Aquí podrías mostrar una notificación de error
-      alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
-      throw error;
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario');
+      }
+
+      setNotification({
+        type: 'success',
+        message: '¡Gracias por contactarnos! Te enviaremos un email de confirmación.',
+      });
+      setIsOpen(false);
+    } catch {
+      setNotification({
+        type: 'error',
+        message: 'Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
+  const clearNotification = () => setNotification(null);
+
   return {
-    isModalOpen,
-    handleOpenModal,
-    handleCloseModal,
-    handleSubmit
+    isOpen,
+    setIsOpen,
+    isSubmitting,
+    notification,
+    clearNotification,
+    onSubmit: handleSubmit,
   };
 }; 

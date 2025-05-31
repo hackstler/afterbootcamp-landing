@@ -30,4 +30,13 @@ export type Mentor = {
 export type NavigationItem = {
   label: string;
   href: string;
+};
+
+export type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  country: string;
+  message: string;
 }; 

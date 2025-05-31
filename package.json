@@ -7,15 +7,26 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "tsx watch server/index.ts",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/nodemailer": "^6.4.17",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "lucide-react": "^0.511.0",
+    "nodemailer": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.56.4",
-    "react-router-dom": "^7.6.1"
+    "react-router-dom": "^7.6.1",
+    "tsx": "^4.19.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

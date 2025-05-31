@@ -6,23 +6,31 @@ type TestimonialsProps = {
 
 export const Testimonials = ({ testimonials }: TestimonialsProps) => {
   return (
-    <div className="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      <div className="flex items-stretch p-4 gap-3">
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((testimonial) => (
+        <div 
+          key={testimonial.id} 
+          className="flex flex-col gap-4 rounded-xl border border-[#ced3e9] bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div className="flex items-center gap-4">
             <div
-              className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex flex-col"
+              className="size-16 rounded-full bg-cover bg-center flex-shrink-0"
               style={{ backgroundImage: `url("${testimonial.image}")` }}
             />
             <div>
-              <p className="text-[#0d0f1c] text-base font-medium leading-normal">{testimonial.quote}</p>
+              <h3 className="text-[#0d0f1c] text-lg font-bold leading-tight">
+                {testimonial.name}
+              </h3>
               <p className="text-[#47579e] text-sm font-normal leading-normal">
-                {testimonial.name}, {testimonial.role}
+                {testimonial.role}
               </p>
             </div>
           </div>
-        ))}
-      </div>
+          <p className="text-[#47579e] text-base leading-relaxed">
+            {testimonial.quote}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }; 

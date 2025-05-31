@@ -13,40 +13,59 @@ import { MENTOR, PROGRAM_STEPS, SERVICES, TESTIMONIALS } from './shared/constant
 
 const MainContent = () => (
   <MainLayout>
-    <section id="inicio">
-      <Hero
-        title="¿Y ahora qué?"
-        subtitle="Si te sientes perdido después de terminar tu formación, no estás solo. Aquí empieza tu carrera de verdad."
-        buttonText="Reserva una sesión gratuita"
-      />
+    <section id="inicio" className="relative">
+      <div className="relative z-10">
+        <Hero
+          title="¿Y ahora qué?"
+          subtitle="Si te sientes perdido después de terminar tu formación, no estás solo. Aquí empieza tu carrera de verdad."
+          buttonText="Reserva una sesión gratuita"
+        />
+      </div>
     </section>
-    <section id="programa">
-      <h2 className="text-[#0d0f1c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-        Conoce a tu mentor
-      </h2>
-      <Mentor mentor={MENTOR} />
-      <h2 className="text-[#0d0f1c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-        Programa de Mentoría
-      </h2>
-      <ProgramSteps steps={PROGRAM_STEPS} />
+
+    <section id="programa" className="relative">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
+          Conoce a tu mentor
+        </h2>
+        <Mentor mentor={MENTOR} />
+      </div>
+
+      <div className="mt-16 sm:mt-24">
+        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
+          Programa de Mentoría
+        </h2>
+        <ProgramSteps steps={PROGRAM_STEPS} />
+      </div>
     </section>
-    <section id="servicios">
-      <h2 className="text-[#0d0f1c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-        Servicios Ofrecidos
-      </h2>
-      <Services services={SERVICES} />
+
+    <section id="servicios" className="relative">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
+          Servicios Ofrecidos
+        </h2>
+        <Services services={SERVICES} />
+      </div>
     </section>
-    <section id="testimonios">
-      <h2 className="text-[#0d0f1c] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-        Testimonios
-      </h2>
-      <Testimonials testimonials={TESTIMONIALS} />
+
+    <section id="testimonios" className="relative">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
+          Testimonios
+        </h2>
+        <Testimonials testimonials={TESTIMONIALS} />
+      </div>
     </section>
-    <CTA
-      title="¡Da el siguiente paso en tu carrera!"
-      primaryButtonText="Reserva una sesión gratuita"
-      secondaryButtonText="Empieza tu roadmap hoy"
-    />
+
+    <section className="relative">
+      <div className="max-w-3xl mx-auto">
+        <CTA
+          title="¡Da el siguiente paso en tu carrera!"
+          primaryButtonText="Reserva una sesión gratuita"
+          secondaryButtonText="Empieza tu roadmap hoy"
+        />
+      </div>
+    </section>
   </MainLayout>
 );
 

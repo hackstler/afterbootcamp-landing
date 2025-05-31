@@ -8,16 +8,14 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="relative flex size-full min-h-screen flex-col bg-[#f8f9fc] group/design-root overflow-x-hidden" style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}>
-      <div className="layout-container flex h-full grow flex-col">
-        <Navigation />
-        <div className="flex flex-1 justify-center">
-          <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
-            {children}
-          </div>
+    <div className="min-h-screen flex flex-col bg-[#f8f9fc] antialiased" style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}>
+      <Navigation />
+      <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="space-y-16 sm:space-y-24">
+          {children}
         </div>
-        <Footer copyright="© 2024 afterbootcamp.es. Todos los derechos reservados." />
-      </div>
+      </main>
+      <Footer copyright="© 2024 afterbootcamp.es. Todos los derechos reservados." />
     </div>
   );
 }; 

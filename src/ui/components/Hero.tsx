@@ -8,42 +8,55 @@ type HeroProps = {
 };
 
 export const Hero = ({ title, subtitle, buttonText }: HeroProps) => {
-  const { isModalOpen, handleOpenModal, handleCloseModal, handleSubmit } = useContactForm();
+  const { 
+    isOpen, 
+    setIsOpen, 
+    onSubmit,
+    isSubmitting,
+    notification,
+    clearNotification
+  } = useContactForm();
 
   return (
     <>
-      <div className="@container">
-        <div className="@[480px]:p-4">
-          <div
-            className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://storage.googleapis.com/afterbootcamp/image%20(1).png")`,
-            }}
-          >
-            <div className="flex flex-col gap-2 text-left">
-              <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                {title}
-              </h1>
-              <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                {subtitle}
-              </h2>
+      <div className="relative isolate overflow-hidden">
+        <div 
+          className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%), url('https://storage.googleapis.com/afterbootcamp/image%20(1).png')`,
+            backgroundPosition: 'center 40%',
+            backgroundSize: 'cover',
+            filter: 'blur(2px)'
+          }}
+        />
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl">
+              {title}
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-white/90 drop-shadow-md sm:text-xl">
+              {subtitle}
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="rounded-full bg-[#4768fa] px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-[#3a56d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4768fa] sm:text-lg"
+              >
+                {buttonText}
+              </button>
             </div>
-            <button 
-              onClick={handleOpenModal}
-              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#4768fa] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-[#3a56d4] transition-colors"
-            >
-              <span className="truncate">{buttonText}</span>
-            </button>
           </div>
         </div>
       </div>
-
       <ContactModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onSubmit={handleSubmit}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        onSubmit={onSubmit}
         title="Solicita Información sobre Mentorías"
         subtitle="Completa el formulario para recibir más información sobre nuestras opciones personalizadas."
+        isSubmitting={isSubmitting}
+        notification={notification}
+        onClearNotification={clearNotification}
       />
     </>
   );
