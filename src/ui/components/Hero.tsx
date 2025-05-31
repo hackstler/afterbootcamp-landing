@@ -11,7 +11,7 @@ export const Hero = ({ title, subtitle, buttonText }: HeroProps) => {
         <div
           className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0nXUp7JZ1cY7VQYnRE3ZFAPJadIhvxkfvG17o1aJ96PLCC8i9pm92IICl-frrqteR18jEg6OL-QQw4EMXpHrUP8mWo6ljR79VcDERna9n3gI1QQL-hMSHrIjnbBs-re4yAILzj_ezsn7RtmNOnwpa7nP_CwT0RSVsQeO3g0SRCCEWkEPlJpRY8Lhy-lp9LRYN36Yo4InPOo04iZcskwtnhlqj195oOFtUTRsREyRIqFUigc7pRUahbp6PuwpNxxbO6H3_k_4Mwun3")`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://storage.googleapis.com/afterbootcamp/image%20(1).png")`,
           }}
         >
           <div className="flex flex-col gap-2 text-left">

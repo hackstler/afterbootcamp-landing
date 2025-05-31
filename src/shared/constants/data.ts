@@ -9,10 +9,10 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
 ];
 
 export const MENTOR: Mentor = {
-  name: 'Sergio Pérez',
+  name: 'Sergio',
   role: 'Senior Developer & DevOps Engineer',
   description: 'De trabajar en un cine a fundar su propia consultoría de éxito, Sergio te guiará en tus primeros pasos en la industria tech.',
-  image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCp2XjJ5ab9MFqFCBzwu2SCCEDvoWWc-Rwj8mGPlme3JjY3g7hWiReFD6_KVlOpcBHU_GhKmlzOhH303s_pwwt8X_pJjQbjowSZ6zGOg76LWNlA8oJUtMD0pzNxEovHwEsF46Q_bDSD-85ZYEQSfLdiI_oi0gHqLGfX_J6j8W76hf86C3W4O2A6_vlhPtvigtl8y_xHO-jKVPp5rIGMHy6yXNyWmxkcC_OvXwB1RmUpLIXzo7h79U4rn5KGzm8VcA4K2uK91Am2qjTo',
+  image: 'https://storage.googleapis.com/afterbootcamp/foto-landing-sergio.jpeg'
 };
 
 export const PROGRAM_STEPS: ProgramStep[] = [
