@@ -2,14 +2,14 @@ import type { NavigationItem, ProgramStep, Service, Testimonial, Mentor } from '
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: 'Inicio', href: '#' },
+  { label: 'Historia', href: '/historia' },
   { label: 'Programa', href: '#programa' },
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Testimonios', href: '#testimonios' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Testimonios', href: '#testimonios' }
 ];
 
 export const MENTOR: Mentor = {
-  name: 'Sergio',
+  name: 'Sergio Pérez',
   role: 'Senior Developer & DevOps Engineer',
   description: 'De trabajar en un cine a fundar su propia consultoría de éxito, Sergio te guiará en tus primeros pasos en la industria tech.',
   image: 'https://storage.googleapis.com/afterbootcamp/foto-landing-sergio.jpeg'
