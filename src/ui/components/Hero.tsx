@@ -23,7 +23,7 @@ export const Hero = ({ title, subtitle, buttonText }: HeroProps) => {
         <div 
           className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%), url('https://storage.googleapis.com/afterbootcamp/image%20(1).png')`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url('https://storage.googleapis.com/afterbootcamp/image%20(1).png')`,
             backgroundPosition: 'center 40%',
             backgroundSize: 'cover',
             filter: 'blur(2px)'
