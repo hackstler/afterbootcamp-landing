@@ -9,12 +9,25 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
-}));
+const corsOptions = {
+  origin: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.originalUrl}`);
+  next();
+});
+
 app.use(express.json());
+
+app.get('/cors-test', (req, res) => {
+  res.json({ ok: true });
+});
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
