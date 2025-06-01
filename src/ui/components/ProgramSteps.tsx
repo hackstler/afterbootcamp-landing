@@ -1,5 +1,4 @@
-import React from 'react';
-import type { ProgramStep } from '../../shared/types';
+import type { ProgramStep } from '../../shared/types/index';
 import { IconMap } from '../../shared/constants/icons';
 
 type ProgramStepsProps = {

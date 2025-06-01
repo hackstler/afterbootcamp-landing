@@ -1,4 +1,4 @@
-import type { NavigationItem, ProgramStep, Service, Testimonial, Mentor } from '../types';
+import type { NavigationItem, ProgramStep, Service, Testimonial, Mentor } from '../types/index';
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: 'Inicio', href: '#' },

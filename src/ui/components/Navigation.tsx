@@ -1,4 +1,4 @@
-import type { NavigationItem } from '../../shared/types';
+import type { NavigationItem } from '../../shared/types/index';
 import { NAVIGATION_ITEMS } from '../../shared/constants/data';
 import { ContactModal } from './ContactModal';
 import { useContactForm } from '../../shared/hooks/useContactForm';

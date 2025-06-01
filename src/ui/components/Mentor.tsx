@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import type { Mentor as MentorType } from '../../shared/types';
+import type { Mentor as MentorType } from '../../shared/types/index';
 
 type MentorProps = {
   mentor: MentorType;

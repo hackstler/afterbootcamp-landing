@@ -1,5 +1,4 @@
-import React from 'react';
-import type { Service } from '../../shared/types';
+import type { Service } from '../../shared/types/index';
 import { IconMap } from '../../shared/constants/icons';
 
 type ServicesProps = {
