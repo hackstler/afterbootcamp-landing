@@ -23,29 +23,27 @@ export const Hero = ({ title, subtitle, buttonText }: HeroProps) => {
         <div 
           className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url('https://storage.googleapis.com/afterbootcamp/image%20(1).png')`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%), url('https://storage.googleapis.com/afterbootcamp/image%20(1).png')`,
             backgroundPosition: 'center 40%',
             backgroundSize: 'cover',
             filter: 'blur(2px)'
           }}
         />
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl">
+        <div className="flex min-h-[480px] flex-col gap-8 items-start justify-end px-4 pb-12 sm:px-10">
+          <div className="flex flex-col gap-4 text-left max-w-2xl">
+            <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] sm:text-5xl sm:font-black sm:leading-tight sm:tracking-[-0.033em]">
               {title}
             </h1>
-            <p className="mt-6 text-lg leading-8 text-white/90 drop-shadow-md sm:text-xl">
+            <h2 className="text-white text-base font-normal leading-relaxed sm:text-lg sm:font-normal sm:leading-relaxed">
               {subtitle}
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="rounded-full bg-[#4768fa] px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-[#3a56d4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4768fa] sm:text-lg"
-              >
-                {buttonText}
-              </button>
-            </div>
+            </h2>
           </div>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 sm:h-14 sm:px-8 bg-[#607afb] text-[#f8f9fc] text-base font-bold leading-normal tracking-[0.015em] sm:text-lg sm:font-bold sm:leading-normal sm:tracking-[0.015em] hover:bg-[#47569e] transition-colors"
+          >
+            <span className="truncate">{buttonText}</span>
+          </button>
         </div>
       </div>
       <ContactModal

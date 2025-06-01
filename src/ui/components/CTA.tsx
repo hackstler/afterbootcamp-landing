@@ -23,20 +23,20 @@ export const CTA = ({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-4 px-4 py-8 text-center sm:py-12">
-        <h2 className="text-[#0d0f1c] text-xl font-bold leading-tight tracking-[-0.015em] sm:text-[22px] max-w-[600px]">
+      <div className="flex flex-col items-center justify-center gap-6 px-4 py-12 text-center sm:py-16">
+        <h2 className="text-[#0d0f1c] text-2xl font-bold leading-tight tracking-[-0.015em] sm:text-3xl max-w-[600px]">
           {title}
         </h2>
-        <div className="flex flex-col gap-3 w-full sm:w-auto sm:flex-row">
+        <div className="flex flex-col gap-4 w-full sm:w-auto sm:flex-row">
           <button
             onClick={() => setIsOpen(true)}
-            className="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#4768fa] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#3a56d4] transition-colors"
+            className="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[#4768fa] text-[#f8f9fc] text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#3a56d4] transition-colors"
           >
             <span className="truncate">{primaryButtonText}</span>
           </button>
           <button
             onClick={() => setIsOpen(true)}
-            className="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 border border-[#4768fa] text-[#4768fa] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#4768fa] hover:text-[#f8f9fc] transition-colors"
+            className="w-full sm:w-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 border-2 border-[#4768fa] text-[#4768fa] text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#4768fa] hover:text-[#f8f9fc] transition-colors"
           >
             <span className="truncate">{secondaryButtonText}</span>
           </button>

@@ -41,7 +41,7 @@ export const Navigation = ({ items = NAVIGATION_ITEMS }: NavigationProps) => {
   return (
     <>
       <header className="sticky top-0 z-40 bg-white">
-        <div className="flex items-center justify-between border-b border-solid border-b-[#e6e9f4] px-4 py-3 sm:px-10">
+        <div className="flex items-center justify-between border-b border-solid border-b-[#ced2e9] px-4 py-3 sm:px-10">
           <div className="flex items-center gap-4 text-[#0d0f1c]">
             <Link to="/" className="flex items-center gap-4">
               <div className="size-8">
@@ -63,8 +63,8 @@ export const Navigation = ({ items = NAVIGATION_ITEMS }: NavigationProps) => {
                   key={item.href}
                   to={item.href}
                   onClick={(e) => handleNavigationClick(e, item.href)}
-                  className={`text-[#0d0f1c] text-sm font-medium leading-normal hover:text-[#4768fa] transition-colors ${
-                    location.pathname === '/' && item.href === '#' ? 'text-[#4768fa]' : ''
+                  className={`text-[#0d0f1c] text-sm font-medium leading-normal hover:text-[#607afb] transition-colors ${
+                    location.pathname === '/' && item.href === '#' ? 'text-[#607afb]' : ''
                   }`}
                 >
                   {item.label}
@@ -73,7 +73,7 @@ export const Navigation = ({ items = NAVIGATION_ITEMS }: NavigationProps) => {
             </div>
             <button
               onClick={() => setIsOpen(true)}
-              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#4768fa] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#3a56d4] transition-colors"
+              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#607afb] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#47569e] transition-colors"
             >
               <span className="truncate">Reserva una sesión gratuita</span>
             </button>
@@ -82,7 +82,7 @@ export const Navigation = ({ items = NAVIGATION_ITEMS }: NavigationProps) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-[#0d0f1c] hover:text-[#4768fa] transition-colors"
+            className="md:hidden p-2 text-[#0d0f1c] hover:text-[#607afb] transition-colors"
             aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
             {isMobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
@@ -91,15 +91,15 @@ export const Navigation = ({ items = NAVIGATION_ITEMS }: NavigationProps) => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-b border-solid border-b-[#e6e9f4] bg-white">
+          <div className="md:hidden border-b border-solid border-b-[#ced2e9] bg-white">
             <nav className="flex flex-col px-4 py-2">
               {items.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
                   onClick={(e) => handleNavigationClick(e, item.href)}
-                  className={`py-3 text-[#0d0f1c] text-sm font-medium leading-normal hover:text-[#4768fa] transition-colors ${
-                    location.pathname === '/' && item.href === '#' ? 'text-[#4768fa]' : ''
+                  className={`py-3 text-[#0d0f1c] text-sm font-medium leading-normal hover:text-[#607afb] transition-colors ${
+                    location.pathname === '/' && item.href === '#' ? 'text-[#607afb]' : ''
                   }`}
                 >
                   {item.label}
@@ -110,7 +110,7 @@ export const Navigation = ({ items = NAVIGATION_ITEMS }: NavigationProps) => {
                   setIsOpen(true);
                   setIsMobileMenuOpen(false);
                 }}
-                className="my-3 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#4768fa] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#3a56d4] transition-colors"
+                className="my-3 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#607afb] text-[#f8f9fc] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#47569e] transition-colors"
               >
                 <span className="truncate">Reserva una sesión gratuita</span>
               </button>

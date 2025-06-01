@@ -7,20 +7,20 @@ type ProgramStepsProps = {
 
 export const ProgramSteps = ({ steps }: ProgramStepsProps) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {steps.map((step) => (
         <div 
           key={step.id} 
-          className="flex flex-col gap-4 rounded-xl border border-[#ced3e9] bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+          className="flex flex-col gap-4 rounded-xl border border-[#ced2e9] bg-[#f8f9fc] p-6 hover:border-[#607afb] transition-colors"
         >
-          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-[#f8f9fc] text-[#4768fa]">
+          <div className="text-[#0d0f1c] w-8 h-8 flex items-center justify-center">
             {IconMap[step.icon]}
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-[#0d0f1c] text-lg font-bold leading-tight">
+            <h2 className="text-[#0d0f1c] text-lg font-bold leading-tight tracking-[-0.015em]">
               {step.title}
-            </h3>
-            <p className="text-[#47579e] text-base leading-relaxed">
+            </h2>
+            <p className="text-[#47569e] text-base font-normal leading-relaxed">
               {step.description}
             </p>
           </div>
