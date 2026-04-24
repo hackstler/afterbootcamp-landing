@@ -75,7 +75,7 @@ export const VILLAINS: Villain[] = [
     kind: 'Nivel 1',
     title: 'El influencer de IA',
     description: 'Nunca ha trabajado de desarrollador ni de técnico. Antes vendía cursos de fotografía, copywriting o productividad. Ahora vende IA porque toca. Cero código en producción, mucho LinkedIn.',
-    quote: '"un AK-47 en manos de alguien que no ha tocado software en su vida"',
+    quote: '"un mono con un AK-47 también dispara — eso no significa que sepa lo que hace"',
   },
   {
     kind: 'Nivel 2',
