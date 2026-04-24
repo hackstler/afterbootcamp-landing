@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NAVIGATION_ITEMS } from '../../shared/constants/data';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -8,6 +9,7 @@ type NavigationProps = {
 export const Navigation = ({ onCta }: NavigationProps) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -18,6 +20,7 @@ export const Navigation = ({ onCta }: NavigationProps) => {
         document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    setMobileOpen(false);
   };
 
   return (
@@ -41,10 +44,37 @@ export const Navigation = ({ onCta }: NavigationProps) => {
             </a>
           ))}
         </div>
-        <button className="nav-cta" onClick={onCta}>
+        <button className="nav-cta nav-cta-desktop" onClick={onCta}>
           Sesión 0€ →
         </button>
+        <button
+          className="nav-burger"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+        >
+          {mobileOpen ? '✕' : '☰'}
+        </button>
       </div>
+      {mobileOpen && (
+        <div className="nav-mobile">
+          {NAVIGATION_ITEMS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => handleClick(e, item.href)}
+            >
+              {item.label}
+            </a>
+          ))}
+          <button
+            className="btn"
+            style={{ width: '100%', justifyContent: 'center' }}
+            onClick={() => { onCta(); setMobileOpen(false); }}
+          >
+            Sesión 0€ <span className="ar">→</span>
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
