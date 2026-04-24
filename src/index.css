@@ -81,7 +81,8 @@ a{color:inherit;}
 .btn-dark{background:var(--color-ink);color:var(--color-paper);}
 
 /* ─── hero ─── */
-.hero{padding:3rem 0 0;position:relative;overflow:hidden;}
+.hero{min-height:calc(100vh - 29px - 58px);display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.hero-content{flex:1;padding:3rem 0;}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr);gap:3rem;align-items:start;}
 .hero-grid > *{min-width:0;}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem;}}
