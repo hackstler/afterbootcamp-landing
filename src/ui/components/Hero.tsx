@@ -5,10 +5,21 @@ type HeroProps = {
   onCta: () => void;
 };
 
-export const Hero = ({ onCta }: HeroProps) => {
-  const stripItems = [...HERO_STRIP_ITEMS, ...HERO_STRIP_ITEMS];
-
+const HeroStrip = () => {
+  const items = [...HERO_STRIP_ITEMS, ...HERO_STRIP_ITEMS];
   return (
+    <div className="hero-strip">
+      <div className="hero-strip-inner">
+        {items.map((item, i) => (
+          <span key={i}>{item}</span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const Hero = ({ onCta }: HeroProps) => (
+  <>
     <section className="hero">
       <div className="container">
         <div className="hero-grid">
@@ -56,13 +67,7 @@ export const Hero = ({ onCta }: HeroProps) => {
           </div>
         </div>
       </div>
-      <div className="hero-strip">
-        <div className="hero-strip-inner">
-          {stripItems.map((item, i) => (
-            <span key={i}>{item}</span>
-          ))}
-        </div>
-      </div>
     </section>
-  );
-};
+    <HeroStrip />
+  </>
+);
