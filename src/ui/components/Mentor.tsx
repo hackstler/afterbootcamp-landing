@@ -1,35 +1,57 @@
-import { Link } from 'react-router-dom';
-import type { Mentor as MentorType } from '../../shared/types/index';
+import { useState } from 'react';
+import { MENTOR } from '../../shared/constants/data';
+import { SectionHead } from './SectionHead';
 
-type MentorProps = {
-  mentor: MentorType;
-};
+export const Mentor = () => {
+  const [imgOk, setImgOk] = useState(true);
 
-export const Mentor = ({ mentor }: MentorProps) => {
   return (
-    <div className="flex flex-col gap-8 rounded-xl border border-[#ced2e9] bg-[#f8f9fc] p-8 shadow-sm hover:border-[#607afb] transition-colors">
-      <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-        <Link to="/historia" className="flex-shrink-0">
-          <img
-            src={mentor.image}
-            alt={mentor.name}
-            className="size-36 rounded-full object-cover hover:opacity-90 transition-opacity ring-2 ring-[#607afb] ring-offset-2"
-          />
-        </Link>
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-3">
-            <h3 className="text-[#0d0f1c] text-2xl font-bold leading-tight tracking-[-0.015em]">
-              {mentor.name}
-            </h3>
-            <p className="text-[#47569e] text-lg font-normal leading-normal">
-              {mentor.role}
-            </p>
+    <section className="sec alt" id="mentor">
+      <div className="container">
+        <SectionHead
+          number="07"
+          total="09"
+          meta="El operador"
+          title='Tu mentor. <em>No un gurú.</em>'
+        />
+        <div className="mentor">
+          <div className="m-photo-card">
+            <div className="m-photo-wrap">
+              {imgOk ? (
+                <img
+                  src={MENTOR.photo}
+                  alt={MENTOR.name}
+                  onError={() => setImgOk(false)}
+                />
+              ) : (
+                <div className="m-fallback">SP</div>
+              )}
+            </div>
+            <div className="m-photo-caption">
+              <span>CAM_01 · GIJÓN</span>
+              <span className="rec">REC</span>
+            </div>
           </div>
-          <p className="text-[#47569e] text-base leading-relaxed">
-            {mentor.description}
-          </p>
+          <div className="m-info">
+            <div className="pre">El mentor</div>
+            <h3>
+              {MENTOR.name.split(' ')[0]}{' '}
+              <em>{MENTOR.name.split(' ').slice(1).join(' ')}</em>
+            </h3>
+            <div className="m-role">{MENTOR.role}</div>
+            <div className="m-bio">
+              {MENTOR.bio.map((p, i) => (
+                <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+              ))}
+            </div>
+            <div className="m-creds">
+              {MENTOR.creds.map((c, i) => (
+                <div key={i} className="cred">{c}</div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-}; 
+};

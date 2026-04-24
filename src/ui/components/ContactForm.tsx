@@ -19,129 +19,103 @@ export const ContactForm = ({ onSubmit, isSubmitting = false }: ContactFormProps
       await onSubmit(data);
       reset();
     } catch {
-      // El error ya se maneja en el hook useContactForm
+      // Error handled in useContactForm hook
     }
   };
+
+  const inputClass = "mt-1.5 block w-full rounded-radius-lg border border-border px-3.5 py-2.5 text-text-primary text-sm bg-bg focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all";
+  const labelClass = "block text-sm font-medium text-text-primary";
+  const errorClass = "mt-1 text-xs text-error font-medium";
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="flex flex-col gap-4">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-[#0d0f1c]">
-            Nombre
-          </label>
+          <label htmlFor="firstName" className={labelClass}>Nombre</label>
           <input
             type="text"
             id="firstName"
             {...register('firstName', { required: 'El nombre es requerido' })}
-            className="mt-1 block w-full rounded-md border border-[#e6e9f4] px-3 py-2 text-[#0d0f1c] text-sm shadow-sm focus:border-[#4768fa] focus:outline-none focus:ring-1 focus:ring-[#4768fa] disabled:opacity-50 disabled:cursor-not-allowed"
+            className={inputClass}
             disabled={isSubmitting}
           />
-          {errors.firstName && (
-            <p className="mt-1 text-xs text-[#ef4444] sm:text-sm">{errors.firstName.message}</p>
-          )}
+          {errors.firstName && <p className={errorClass}>{errors.firstName.message}</p>}
         </div>
-
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-[#0d0f1c]">
-            Apellidos
-          </label>
+          <label htmlFor="lastName" className={labelClass}>Apellidos</label>
           <input
             type="text"
             id="lastName"
             {...register('lastName', { required: 'Los apellidos son requeridos' })}
-            className="mt-1 block w-full rounded-md border border-[#e6e9f4] px-3 py-2 text-[#0d0f1c] text-sm shadow-sm focus:border-[#4768fa] focus:outline-none focus:ring-1 focus:ring-[#4768fa] disabled:opacity-50 disabled:cursor-not-allowed"
+            className={inputClass}
             disabled={isSubmitting}
           />
-          {errors.lastName && (
-            <p className="mt-1 text-xs text-[#ef4444] sm:text-sm">{errors.lastName.message}</p>
-          )}
+          {errors.lastName && <p className={errorClass}>{errors.lastName.message}</p>}
         </div>
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-[#0d0f1c]">
-          Email
-        </label>
+        <label htmlFor="email" className={labelClass}>Email</label>
         <input
           type="email"
           id="email"
           {...register('email', {
             required: 'El email es requerido',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Email inválido'
-            }
+            pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Email inválido' }
           })}
-          className="mt-1 block w-full rounded-md border border-[#e6e9f4] px-3 py-2 text-[#0d0f1c] text-sm shadow-sm focus:border-[#4768fa] focus:outline-none focus:ring-1 focus:ring-[#4768fa] disabled:opacity-50 disabled:cursor-not-allowed"
+          className={inputClass}
           disabled={isSubmitting}
         />
-        {errors.email && (
-          <p className="mt-1 text-xs text-[#ef4444] sm:text-sm">{errors.email.message}</p>
-        )}
+        {errors.email && <p className={errorClass}>{errors.email.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="phoneNumber" className="block text-sm font-medium text-[#0d0f1c]">
-          Teléfono
-        </label>
+        <label htmlFor="phoneNumber" className={labelClass}>Teléfono</label>
         <input
           type="tel"
           id="phoneNumber"
           {...register('phoneNumber', {
             required: 'El teléfono es requerido',
-            pattern: {
-              value: /^\+?[0-9\s-]{9,}$/,
-              message: 'Teléfono inválido'
-            }
+            pattern: { value: /^\+?[0-9\s-]{9,}$/, message: 'Teléfono inválido' }
           })}
-          className="mt-1 block w-full rounded-md border border-[#e6e9f4] px-3 py-2 text-[#0d0f1c] text-sm shadow-sm focus:border-[#4768fa] focus:outline-none focus:ring-1 focus:ring-[#4768fa] disabled:opacity-50 disabled:cursor-not-allowed"
+          className={inputClass}
           disabled={isSubmitting}
         />
-        {errors.phoneNumber && (
-          <p className="mt-1 text-xs text-[#ef4444] sm:text-sm">{errors.phoneNumber.message}</p>
-        )}
+        {errors.phoneNumber && <p className={errorClass}>{errors.phoneNumber.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="country" className="block text-sm font-medium text-[#0d0f1c]">
-          País
-        </label>
+        <label htmlFor="country" className={labelClass}>País</label>
         <input
           type="text"
           id="country"
           {...register('country', { required: 'El país es requerido' })}
-          className="mt-1 block w-full rounded-md border border-[#e6e9f4] px-3 py-2 text-[#0d0f1c] text-sm shadow-sm focus:border-[#4768fa] focus:outline-none focus:ring-1 focus:ring-[#4768fa] disabled:opacity-50 disabled:cursor-not-allowed"
+          className={inputClass}
           disabled={isSubmitting}
         />
-        {errors.country && (
-          <p className="mt-1 text-xs text-[#ef4444] sm:text-sm">{errors.country.message}</p>
-        )}
+        {errors.country && <p className={errorClass}>{errors.country.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[#0d0f1c]">
-          Mensaje
-        </label>
+        <label htmlFor="message" className={labelClass}>Cuéntanos tu situación</label>
         <textarea
           id="message"
-          rows={4}
+          rows={3}
           {...register('message', { required: 'El mensaje es requerido' })}
-          className="mt-1 block w-full rounded-md border border-[#e6e9f4] px-3 py-2 text-[#0d0f1c] text-sm shadow-sm focus:border-[#4768fa] focus:outline-none focus:ring-1 focus:ring-[#4768fa] disabled:opacity-50 disabled:cursor-not-allowed"
+          className={inputClass}
           disabled={isSubmitting}
+          placeholder="¿Qué has estudiado? ¿En qué punto estás? ¿Qué buscas?"
         />
-        {errors.message && (
-          <p className="mt-1 text-xs text-[#ef4444] sm:text-sm">{errors.message.message}</p>
-        )}
+        {errors.message && <p className={errorClass}>{errors.message.message}</p>}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-4 flex w-full justify-center rounded-md bg-[#4768fa] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#3a56d4] focus:outline-none focus:ring-2 focus:ring-[#4768fa] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="mt-2 w-full rounded-radius-lg bg-brand px-4 py-3 text-sm font-bold text-white hover:bg-brand-dark focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer btn-shimmer"
       >
         {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
       </button>
     </form>
   );
-}; 
+};

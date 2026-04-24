@@ -1,73 +1,48 @@
+import { useState } from 'react';
 import { SEO } from './ui/components/SEO';
 import { MainLayout } from './ui/layouts/MainLayout';
+import { Marquee } from './ui/components/Marquee';
+import { Navigation } from './ui/components/Navigation';
 import { Hero } from './ui/components/Hero';
+import { Manifesto } from './ui/components/Manifesto';
+import { Villains } from './ui/components/Villains';
+import { Problem } from './ui/components/Problem';
+import { Method } from './ui/components/Method';
+import { Projects } from './ui/components/Projects';
+import { Stack } from './ui/components/Stack';
 import { Mentor } from './ui/components/Mentor';
-import { ProgramSteps } from './ui/components/ProgramSteps';
-import { Services } from './ui/components/Services';
 import { Testimonials } from './ui/components/Testimonials';
-import { CTA } from './ui/components/CTA';
+import { FAQ } from './ui/components/FAQ';
+import { Final } from './ui/components/CTA';
+import { Footer } from './ui/components/Footer';
+import { ContactModal } from './ui/components/ContactModal';
 import { PrivacyPolicy } from './ui/pages/PrivacyPolicy';
 import { History } from './ui/pages/History';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MENTOR, PROGRAM_STEPS, SERVICES, TESTIMONIALS } from './shared/constants/data';
 
-const MainContent = () => (
-  <MainLayout>
-    <section id="inicio" className="relative">
-      <div className="relative z-10">
-        <Hero
-          title="¿Y ahora qué?"
-          subtitle="Si te sientes perdido después de terminar tu formación, no estás solo. Aquí empieza tu carrera de verdad."
-          buttonText="Reserva una sesión gratuita"
-        />
-      </div>
-    </section>
+const MainContent = () => {
+  const [modal, setModal] = useState(false);
 
-    <section id="programa" className="relative">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
-          Conoce a tu mentor
-        </h2>
-        <Mentor mentor={MENTOR} />
-      </div>
-
-      <div className="mt-16 sm:mt-24">
-        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
-          Programa de Mentoría
-        </h2>
-        <ProgramSteps steps={PROGRAM_STEPS} />
-      </div>
-    </section>
-
-    <section id="servicios" className="relative">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
-          Servicios Ofrecidos
-        </h2>
-        <Services services={SERVICES} />
-      </div>
-    </section>
-
-    <section id="testimonios" className="relative">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-[#0d0f1c] text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
-          Testimonios
-        </h2>
-        <Testimonials testimonials={TESTIMONIALS} />
-      </div>
-    </section>
-
-    <section className="relative">
-      <div className="max-w-3xl mx-auto">
-        <CTA
-          title="¡Da el siguiente paso en tu carrera!"
-          primaryButtonText="Reserva una sesión gratuita"
-          secondaryButtonText="Empieza tu roadmap hoy"
-        />
-      </div>
-    </section>
-  </MainLayout>
-);
+  return (
+    <MainLayout>
+      <Marquee />
+      <Navigation onCta={() => setModal(true)} />
+      <Hero onCta={() => setModal(true)} />
+      <Manifesto />
+      <Villains />
+      <Problem />
+      <Method />
+      <Projects />
+      <Stack />
+      <Mentor />
+      <Testimonials />
+      <FAQ />
+      <Final onCta={() => setModal(true)} />
+      <Footer />
+      <ContactModal open={modal} onClose={() => setModal(false)} />
+    </MainLayout>
+  );
+};
 
 export const App = () => {
   return (
